@@ -1,0 +1,11 @@
+spring:
+  application:
+  name: Ai-Service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/aiacitivity_fitness
+      database: aiacitivity_fitness
+
+
+server:
+  port: 8082

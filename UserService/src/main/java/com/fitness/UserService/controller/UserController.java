@@ -1,6 +1,8 @@
 package com.fitness.UserService.controller;
 
 
+import com.fitness.UserService.dto.LoginRequest;
+import com.fitness.UserService.dto.LoginResponse;
 import com.fitness.UserService.dto.RegisterRequest;
 import com.fitness.UserService.dto.UserResponse;
 import com.fitness.UserService.modals.User;
@@ -26,5 +28,10 @@ public class UserController {
     @PostMapping("/register")
     public ResponseEntity<UserResponse> register(@Valid @RequestBody com.fitness.UserService.dto.RegisterRequest request){
         return ResponseEntity.ok(userService.register(request));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request){
+        return ResponseEntity.ok(userService.login(request));
     }
 }
