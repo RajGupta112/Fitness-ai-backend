@@ -1,6 +1,6 @@
 package com.fitness.Ai_Service.service;
 
-import com.fitness.Ai_Service.ActivityRepository;
+import com.fitness.Ai_Service.repository.ActivityRepository;
 import com.fitness.Ai_Service.dto.ActivityRequest;
 import com.fitness.Ai_Service.dto.ActivityResponse;
 import com.fitness.Ai_Service.modals.Activity;

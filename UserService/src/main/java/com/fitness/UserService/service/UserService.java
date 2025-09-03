@@ -6,9 +6,10 @@ import com.fitness.UserService.dto.RegisterRequest;
 import com.fitness.UserService.dto.UserResponse;
 import com.fitness.UserService.modals.User;
 import com.fitness.UserService.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -69,6 +70,10 @@ public class UserService {
         loginResponse.setLastName(user.getLastName());
         loginResponse.setMessage("Login successfully");
      return  loginResponse;
+    }
+
+    public boolean existByUserId(String id) {
+        return userRepository.existsById(id);
     }
 }
 
