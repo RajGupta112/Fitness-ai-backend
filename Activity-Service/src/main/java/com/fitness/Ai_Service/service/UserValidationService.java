@@ -1,20 +1,19 @@
 package com.fitness.Ai_Service.service;
 
+import com.fitness.Ai_Service.config.UserServiceClient;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserValidationService {
 
-    private final WebClient userServiceWebClient;
+    private final UserServiceClient userServiceClient;
 
-    public  boolean validateUser(String userId){
-        return  userServiceWebClient.get()
-                .uri("api/users/userId/validate")
-                .retrieve()
-                .bodyToMono(Boolean.class)
-                .block();
+    public boolean validateUser(String userId) {
+        log.info("Calling User Service {}",userId);
+        return Boolean.TRUE.equals(userServiceClient.validateUser(userId));
     }
 }

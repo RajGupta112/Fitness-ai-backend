@@ -9,13 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-server" />
       </profile>
-      <profile name="Annotation profile for Ai-Service" enabled="true">
+      <profile name="Annotation profile for ai-gemini-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
+        <module name="ai-gemini-service" />
         <module name="Ai-Service" />
         <module name="UserService" />
       </profile>
@@ -25,6 +26,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Ai-Service" options="-parameters" />
       <module name="UserService" options="-parameters" />
+      <module name="ai-gemini-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
     </option>
   </component>
