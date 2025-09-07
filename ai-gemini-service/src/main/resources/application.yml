@@ -6,11 +6,21 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/ai-recomendation
       database: ai-recomendation
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: o org.springframework.kafka.support.serializer.JsonDeserializer
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+
+kafka:
+  topic:
+    name: activity-events
 
 server:
   port: 8083

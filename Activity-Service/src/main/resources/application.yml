@@ -4,18 +4,23 @@ server:
 spring:
   application:
     name: Activity-Service
+
   data:
     mongodb:
-      uri: mongodb://localhost:27017/aiacitivity_fitness
-      database: aiacitivity_fitness
+      uri: mongodb://localhost:27017/aiactivity_fitness
+      database: aiactivity_fitness
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: o org.springframework.kafka.support.serializer.JsonDeserializer
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-logging:
-  level:
-    org.springframework.web.reactive.function.client: DEBUG
-    org.springframework.cloud.loadbalancer: DEBUG
-
+kafka:
+  topic:
+    name: activity-events
