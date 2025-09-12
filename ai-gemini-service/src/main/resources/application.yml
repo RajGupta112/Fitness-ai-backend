@@ -6,17 +6,22 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017/ai-recomendation
       database: ai-recomendation
+
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: o org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: activity-processor-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.use.type.headers: false
+        spring.json.value.default.type:  com.fitness.ai_gemini_service.modal.Activity # <-- replace with your DTO class
+        spring.json.trusted.packages: "*"
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
 
 kafka:
   topic:
